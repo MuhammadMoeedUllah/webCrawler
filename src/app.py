@@ -70,7 +70,7 @@ def create_user():
             print('Something went wrong while enque')
             return helper.getErrResponse('Somethnig went wrong')
  
-        identifier  = helper.getHash( url)
+        identifier  = helper.getHash( response['MessageId'] + url)
         print('identifier : ', identifier)
         return helper.getSuccessResponse(jsonify({'identifier':identifier }))
 

@@ -13,7 +13,7 @@ def getHash(string: str):
 
 def insertToDB(messageId, title, url, contents, failedRecords):
 	try:
-		requestId = getHash(url)
+		requestId = getHash(messageId+url)
 		date = str(datetime.now().replace(tzinfo=timezone.utc))
 		resp = client.put_item(
         TableName=REQUESTS_TABLE,
