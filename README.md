@@ -1,4 +1,5 @@
 # Web Crawler
+![CircleCI](https://circleci.com/gh/MuhammadMoeedUllah/Object-Pool.svg?style=svg)
 
 ## Introduction
 
@@ -55,3 +56,5 @@ These above arguments you can use as per your need. First deployment will take s
 Once deployed you will get a publically accessible URL that you can use to make requests.
 
 ### Good LUCK !!
+
+PS: the build badge is setup for my other project. I didnt get time to set it up for this repo. But it looks cool :) 
