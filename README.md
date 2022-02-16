@@ -8,12 +8,12 @@ This app uses `serverless` tool for deploying to the cloud.
 
 ## Dependencies
 
-. serverless
+1. serverless
     - Framework Core: 3.2.1
     - Plugin: 6.0.0
     - SDK: 4.3.1
-. Python 3.6
-. aws credentials
+2. Python 3.6
+3. aws credentials
 
 Python packages required for this project are list in the `requirements.txt` file in the core directory.
 
@@ -32,12 +32,12 @@ Yay, we have a working model to test out the API. Note for every request a new i
 
 The project is based on `serverless` framework. To deploy it first you need to setup your AWS account and clone it. 
 After acount setup you will be provided with 
-    a. AWS_ACCESS_KEY_ID
-    b. AWS_SECRET_ACCESS_KEY
+1. AWS_ACCESS_KEY_ID
+2. AWS_SECRET_ACCESS_KEY
 
 Use them to set your terminal env vars as follows:
-    . export AWS_ACCESS_KEY_ID=`your access key id`
-    . export AWS_SECRET_ACCESS_KEY=`your secret access key`
+1. export AWS_ACCESS_KEY_ID=`your access key id`
+2. export AWS_SECRET_ACCESS_KEY=`your secret access key`
 
 Now got the cloned directory and run
 
