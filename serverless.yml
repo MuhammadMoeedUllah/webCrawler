@@ -57,7 +57,7 @@ functions:
               - apiRequestsQueue
               - Arn
           batchSize: 10
-          maximumBatchingWindow: 5
+          maximumBatchingWindow: 1
           functionResponseType: ReportBatchItemFailures  
  
 resources:
