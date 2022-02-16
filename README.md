@@ -57,4 +57,4 @@ Once deployed you will get a publically accessible URL that you can use to make 
 
 ### Good LUCK !!
 
-PS: the build badge is setup for my other project. I didnt get time to set it up for this repo. But it looks cool :) 
+PS: the build badge is setup for my other project. I set it up for this repo latrer. But it looks cool :) 
