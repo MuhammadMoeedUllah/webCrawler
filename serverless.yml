@@ -50,6 +50,7 @@ functions:
           method: ANY
   worker:
     handler: src/sqs/handler.handler
+    reservedConcurrency: 10
     events:
       - sqs:
           arn:
@@ -58,7 +59,7 @@ functions:
               - Arn
           batchSize: 10
           maximumBatchingWindow: 1
-          functionResponseType: ReportBatchItemFailures  
+          functionResponseType: ReportBatchItemFailures 
  
 resources:
   Resources:
