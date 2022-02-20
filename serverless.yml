@@ -58,7 +58,7 @@ functions:
               - apiRequestsQueue
               - Arn
           batchSize: 10
-          maximumBatchingWindow: 1
+          maximumBatchingWindow: 2
           functionResponseType: ReportBatchItemFailures 
  
 resources:
@@ -67,7 +67,16 @@ resources:
       Type: "AWS::SQS::Queue"
       Properties:
         QueueName: "apiRequestsQueue"
- 
+        RedrivePolicy: 
+          deadLetterTargetArn: 
+            Fn::GetAtt: 
+              - "DeadLetterQueue"
+              - "Arn"
+          maxReceiveCount: 5
+    DeadLetterQueue:
+      Type: AWS::SQS::Queue
+      Properties:
+          QueueName: dlq
     ScrapedWebPageTable:
       Type: 'AWS::DynamoDB::Table'
       Properties:
