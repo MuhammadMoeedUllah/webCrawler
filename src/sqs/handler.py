@@ -4,6 +4,7 @@ import boto3
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime, timezone
+import json
 client = boto3.client('dynamodb')
 REQUESTS_TABLE = os.environ['REQUESTS_TABLE']
 
@@ -56,6 +57,12 @@ def extractURL (record, failedRecords):
 		failedRecords.append(record['messageId'])
 		return ''
 
+def prepareQueueResponse (failedRecords):
+	response = {'batchItemFailures':[]}
+	for record  in failedRecords:
+		response['batchItemFailures'].append({'itemIdentifier':record['messageId']})
+	return json.dumps(response)
+
 def handler (event, context):
 	failedRecords = []
 	try :
@@ -68,7 +75,7 @@ def handler (event, context):
 				else:
 					failedRecords.append(record['messageId'])
 		print("failed records: ", failedRecords)	
-		return failedRecords
+		return prepareQueueResponse(failedRecords)
 	except Exception as e:
 		print ('Exception : ', e)
 		return ''
