@@ -60,8 +60,8 @@ def extractURL (record, failedRecords):
 def prepareQueueResponse (failedRecords):
 	response = {'batchItemFailures':[]}
 	for record  in failedRecords:
-		response['batchItemFailures'].append({'itemIdentifier':record['messageId']})
-	return json.dumps(response)
+		response['batchItemFailures'].append({'itemIdentifier':record})
+	return (response)
 
 def handler (event, context):
 	failedRecords = []
@@ -74,8 +74,9 @@ def handler (event, context):
 					insertToDB(record['messageId'],title,url,content,failedRecords)
 				else:
 					failedRecords.append(record['messageId'])
-		print("failed records: ", failedRecords)	
-		return prepareQueueResponse(failedRecords)
+		response = prepareQueueResponse(failedRecords)
+		print("failed records (response) : ", response)	
+		return response
 	except Exception as e:
 		print ('Exception : ', e)
 		return ''
