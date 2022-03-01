@@ -6,6 +6,8 @@
 Web crawler is a simple application based on AWS cloud services.
 This app uses `serverless` tool for deploying to the cloud.
 
+![alt text](/img/architecture.png)
+
 ## Dependencies
 
 1. serverless
